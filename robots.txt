@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://seudominio.com/sitemap.xml
+Sitemap: https://temdetudobazar.vercel.app/sitemap.xml
