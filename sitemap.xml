@@ -2,32 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://temdetudobazar.vercel.app/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2026-05-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://seudominio.com/#categorias</loc>
+    <loc>https://temdetudobazar.vercel.app/#categorias</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://seudominio.com/#destaques</loc>
+    <loc>https://temdetudobazar.vercel.app/#destaques</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://seudominio.com/#avaliacoes</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://seudominio.com/#localizacao</loc>
+    <loc>https://temdetudobazar.vercel.app/#localizacao</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://seudominio.com/#contato</loc>
+    <loc>https://temdetudobazar.vercel.app/#contato</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
