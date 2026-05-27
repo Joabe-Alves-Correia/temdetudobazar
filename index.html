@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tem de Tudo Bazar | Loja de Varejo - Recife</title>
+  <meta name="description" content="Papelaria, material escolar, utilidades domésticas e brinquedos em Recife. Tudo o que você precisa em um só lugar!"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-ring">
+    <div class="ld-inner">
+      <span>TEM DE TUDO</span>
+      <span class="bt">BAZAR</span>
+    </div>
+  </div>
+  <p class="ld-txt">Carregando...</p>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+</div>
+
+<!-- TOASTS -->
+<div id="toasts"></div>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <div class="nw">
+    <a href="#hero" class="logo">
+      <div class="logo-ring">
+        <div class="logo-in">
+          <span>TEM DE TUDO</span>
+          <span class="bt">BAZAR</span>
+        </div>
+      </div>
+      <div class="nb">
+        <strong>Tem de Tudo Bazar</strong>
+        <span>Loja de Varejo · Recife</span>
+      </div>
+    </a>
+    <ul class="nl" id="nl">
+      <li><a href="#categorias">Categorias</a></li>
+      <li><a href="#destaques">Produtos</a></li>
+      <li><a href="#avaliacoes">Avaliações</a></li>
+      <li><a href="#localizacao">Localização</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li>
+        <a href="https://wa.me/5581999577961?text=Olá!%20Quero%20o%20catálogo"
+           target="_blank" class="cta">
+          <i class="fab fa-whatsapp"></i> Catálogo
+        </a>
+      </li>
+    </ul>
+    <button class="ham" id="ham" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mm" id="mm">
+    <a href="#categorias"  onclick="toggleMenu()">🛒 Categorias</a>
+    <a href="#destaques"   onclick="toggleMenu()">✨ Produtos</a>
+    <a href="#avaliacoes"  onclick="toggleMenu()">⭐ Avaliações</a>
+    <a href="#localizacao" onclick="toggleMenu()">📍 Localização</a>
+    <a href="#instagram"   onclick="toggleMenu()">📸 Instagram</a>
+    <a href="#contato"     onclick="toggleMenu()">💬 Contato</a>
+    <a href="https://wa.me/5581999577961?text=Olá!%20Quero%20o%20catálogo"
+       target="_blank" style="color:#4ade80">
+      📲 Solicitar Catálogo
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="hc">
+    <div>
+      <span class="hbadge">🛍️ Loja de Varejo · Recife - PE</span>
+      <h1 class="htitle">
+        Tudo o que você precisa<br>em <span class="hl">um só lugar!</span>
+      </h1>
+      <p class="hdesc">
+        Papelaria, material escolar, utilidades para casa e brinquedos —
+        encontre os melhores produtos com os melhores preços no coração de Recife.
+      </p>
+      <div class="htags">
+        <span class="htag" onclick="filtrarIr('papelaria')">📚 Papelaria</span>
+        <span class="htag" onclick="filtrarIr('escolar')">✏️ Escolar</span>
+        <span class="htag" onclick="filtrarIr('lar')">🏠 Utilidades</span>
+        <span class="htag" onclick="filtrarIr('brinquedos')">🧸 Brinquedos</span>
+      </div>
+      <div class="hbtns">
+        <a href="https://wa.me/5581999577961?text=Olá!%20Quero%20o%20catálogo"
+           target="_blank" class="bp">
+          <i class="fab fa-whatsapp"></i> Solicitar Catálogo
+        </a>
+        <a href="#categorias" class="bs">
+          <i class="fas fa-th-large"></i> Ver Categorias
+        </a>
+      </div>
+    </div>
+    <div class="hvisual">
+      <div class="hlogo"
+           onclick="toast('🛒 Explore nossas categorias abaixo!','info')"
+           title="Explorar">
+        <div class="hli">
+          <div class="t1">TEM DE TUDO</div>
+          <div class="t2">BAZAR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BAR -->
+<div class="ibar">
+  <div class="ibi">
+    <div class="ii"><i class="fas fa-map-marker-alt"></i> Av. Dantas Barreto, 645 – Santo Antônio, Recife</div>
+    <div class="ii">
+      <i class="fas fa-clock"></i> Seg–Sáb: 8h–18h
+      <span class="ls" id="lojaStatus">...</span>
+    </div>
+    <div class="ii"><i class="fas fa-phone"></i> (81) 9 9957-7961</div>
+    <div class="ii"><i class="fas fa-star"></i> 4.4 ⭐ Google</div>
+  </div>
+</div>
+
+<!-- CATEGORIAS -->
+<section id="categorias">
+  <div class="sh reveal">
+    <span class="sl">O que você encontra aqui</span>
+    <h2 class="st">Nossas Categorias</h2>
+    <p class="ss">Do material escolar às utilidades do lar, temos tudo que você e sua família precisam.</p>
+    <div class="sd"></div>
+  </div>
+  <div class="cg">
+    <div class="cc reveal d1" onclick="filtrarIr('papelaria')">
+      <div class="ci">📚</div>
+      <h3>Papelaria</h3>
+      <p>Cadernos, canetas, lápis, pastas e muito mais para o dia a dia</p>
+    </div>
+    <div class="cc reveal d2" onclick="filtrarIr('escolar')">
+      <div class="ci">✏️</div>
+      <h3>Material Escolar</h3>
+      <p>Tudo para a volta às aulas: mochilas, estojo, réguas e mais</p>
+    </div>
+    <div class="cc reveal d3" onclick="filtrarIr('lar')">
+      <div class="ci">🏠</div>
+      <h3>Utilidades do Lar</h3>
+      <p>Organização, limpeza, cozinha e decoração para sua casa</p>
+    </div>
+    <div class="cc reveal d4" onclick="filtrarIr('brinquedos')">
+      <div class="ci">🧸</div>
+      <h3>Brinquedos</h3>
+      <p>Diversão garantida com brinquedos educativos e recreativos</p>
+    </div>
+    <div class="cc reveal d2" onclick="filtrarIr('presentes')">
+      <div class="ci">🎁</div>
+      <h3>Presentes</h3>
+      <p>Presentes criativos e acessíveis para todas as ocasiões</p>
+    </div>
+    <div class="cc reveal d3" onclick="filtrarIr('escritorio')">
+      <div class="ci">🖨️</div>
+      <h3>Escritório</h3>
+      <p>Materiais de escritório, impressão e organização profissional</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTOS -->
+<section id="destaques">
+  <div class="sh reveal">
+    <span class="sl">Imperdíveis</span>
+    <h2 class="st">Produtos em Destaque</h2>
+    <p class="ss">Confira os mais procurados. Solicite o catálogo completo pelo WhatsApp!</p>
+    <div class="sd"></div>
+  </div>
+
+  <div class="fb reveal" id="filtroBar">
+    <button class="fbtn on" onclick="filtrar('todos',this)">🛒 Todos</button>
+    <button class="fbtn" onclick="filtrar('papelaria',this)">📚 Papelaria</button>
+    <button class="fbtn" onclick="filtrar('escolar',this)">✏️ Escolar</button>
+    <button class="fbtn" onclick="filtrar('lar',this)">🏠 Utilidades</button>
+    <button class="fbtn" onclick="filtrar('brinquedos',this)">🧸 Brinquedos</button>
+    <button class="fbtn" onclick="filtrar('presentes',this)">🎁 Presentes</button>
+  </div>
+
+  <div class="pg" id="pg">
+
+    <div class="pc" data-cat="papelaria">
+      <div class="pt" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb)">
+        📒
+        <span class="badge">🔥 Popular</span>
+        <button class="wl" onclick="curtir(this)"><i class="far fa-heart"></i></button>
+        <div class="pto">
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Cadernos!"
+             target="_blank" class="ov">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="pb">
+        <p class="pcat">Papelaria</p>
+        <h3 class="pn">Kit Cadernos Universitários</h3>
+        <div class="pf">
+          <span class="pp">R$ 29,90 <small>/ kit</small></span>
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Cadernos!"
+             target="_blank" class="bpd"><i class="fab fa-whatsapp"></i> Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc" data-cat="escolar">
+      <div class="pt" style="background:linear-gradient(135deg,#f3e5f5,#e1bee7)">
+        🎒
+        <span class="badge">📦 Escolar</span>
+        <button class="wl" onclick="curtir(this)"><i class="far fa-heart"></i></button>
+        <div class="pto">
+          <a href="https://wa.me/5581999577961?text=Quero%20a%20Mochila%20Escolar!"
+             target="_blank" class="ov">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="pb">
+        <p class="pcat">Material Escolar</p>
+        <h3 class="pn">Mochila Escolar Resistente</h3>
+        <div class="pf">
+          <span class="pp">R$ 79,90</span>
+          <a href="https://wa.me/5581999577961?text=Quero%20a%20Mochila%20Escolar!"
+             target="_blank" class="bpd"><i class="fab fa-whatsapp"></i> Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc" data-cat="brinquedos">
+      <div class="pt" style="background:linear-gradient(135deg,#fff8e1,#ffecb3)">
+        🧸
+        <span class="badge">❤️ Favorito</span>
+        <button class="wl" onclick="curtir(this)"><i class="far fa-heart"></i></button>
+        <div class="pto">
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Brinquedos!"
+             target="_blank" class="ov">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="pb">
+        <p class="pcat">Brinquedos</p>
+        <h3 class="pn">Kit Brinquedos Educativos</h3>
+        <div class="pf">
+          <span class="pp">R$ 49,90 <small>/ kit</small></span>
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Brinquedos!"
+             target="_blank" class="bpd"><i class="fab fa-whatsapp"></i> Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc" data-cat="lar">
+      <div class="pt" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9)">
+        🏠
+        <span class="badge">🏷️ Oferta</span>
+        <button class="wl" onclick="curtir(this)"><i class="far fa-heart"></i></button>
+        <div class="pto">
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Organização!"
+             target="_blank" class="ov">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="pb">
+        <p class="pcat">Utilidades do Lar</p>
+        <h3 class="pn">Kit Organização Doméstica</h3>
+        <div class="pf">
+          <span class="pp">R$ 39,90 <small>/ kit</small></span>
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Organização!"
+             target="_blank" class="bpd"><i class="fab fa-whatsapp"></i> Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc" data-cat="papelaria">
+      <div class="pt" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0)">
+        🖊️
+        <span class="badge">✨ Novo</span>
+        <button class="wl" onclick="curtir(this)"><i class="far fa-heart"></i></button>
+        <div class="pto">
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Canetas!"
+             target="_blank" class="ov">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="pb">
+        <p class="pcat">Papelaria</p>
+        <h3 class="pn">Kit Canetas Coloridas</h3>
+        <div class="pf">
+          <span class="pp">R$ 18,90 <small>/ kit</small></span>
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Canetas!"
+             target="_blank" class="bpd"><i class="fab fa-whatsapp"></i> Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc" data-cat="presentes">
+      <div class="pt" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9)">
+        🎁
+        <span class="badge">🎉 Especial</span>
+        <button class="wl" onclick="curtir(this)"><i class="far fa-heart"></i></button>
+        <div class="pto">
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Presente!"
+             target="_blank" class="ov">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="pb">
+        <p class="pcat">Presentes</p>
+        <h3 class="pn">Kit Presente Criativo</h3>
+        <div class="pf">
+          <span class="pp">R$ 59,90 <small>/ kit</small></span>
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Presente!"
+             target="_blank" class="bpd"><i class="fab fa-whatsapp"></i> Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc" data-cat="escolar">
+      <div class="pt" style="background:linear-gradient(135deg,#e0f7fa,#b2ebf2)">
+        📐
+        <span class="badge">📚 Escolar</span>
+        <button class="wl" onclick="curtir(this)"><i class="far fa-heart"></i></button>
+        <div class="pto">
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Geométrico!"
+             target="_blank" class="ov">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="pb">
+        <p class="pcat">Material Escolar</p>
+        <h3 class="pn">Kit Geométrico Completo</h3>
+        <div class="pf">
+          <span class="pp">R$ 14,90 <small>/ kit</small></span>
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Geométrico!"
+             target="_blank" class="bpd"><i class="fab fa-whatsapp"></i> Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pc" data-cat="lar">
+      <div class="pt" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2)">
+        🧹
+        <span class="badge">🏠 Lar</span>
+        <button class="wl" onclick="curtir(this)"><i class="far fa-heart"></i></button>
+        <div class="pto">
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Limpeza!"
+             target="_blank" class="ov">Ver detalhes</a>
+        </div>
+      </div>
+      <div class="pb">
+        <p class="pcat">Utilidades do Lar</p>
+        <h3 class="pn">Kit Limpeza Doméstica</h3>
+        <div class="pf">
+          <span class="pp">R$ 34,90 <small>/ kit</small></span>
+          <a href="https://wa.me/5581999577961?text=Quero%20o%20Kit%20Limpeza!"
+             target="_blank" class="bpd"><i class="fab fa-whatsapp"></i> Pedir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sem-resultado" id="semRes">
+      😕 Nenhum produto encontrado nessa categoria.
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:36px">
+    <a href="https://wa.me/5581999577961?text=Quero%20o%20catálogo%20completo!"
+       target="_blank" class="bp">
+      <i class="fab fa-whatsapp"></i> Ver Catálogo Completo
+    </a>
+  </div>
+</section>
+
+<!-- POR QUÊ NÓS -->
+<section id="porque">
+  <div class="sh reveal">
+    <span class="sl">Nossos diferenciais</span>
+    <h2 class="st">Por que escolher o Tem de Tudo?</h2>
+    <p class="ss">Qualidade, variedade e atendimento que fazem a diferença.</p>
+    <div class="sd"></div>
+  </div>
+  <div class="pqg">
+    <div class="pqc reveal d1"><div class="ico">🏷️</div><h3>Preços Acessíveis</h3><p>Produtos de qualidade com os melhores preços para caber no seu bolso</p></div>
+    <div class="pqc reveal d2"><div class="ico">🛒</div><h3>Grande Variedade</h3><p>Mais de 400 produtos para atender todas as suas necessidades</p></div>
+    <div class="pqc reveal d3"><div class="ico">⭐</div><h3>4.4 no Google</h3><p>Avaliação excelente com clientes satisfeitos que recomendam nossa loja</p></div>
+    <div class="pqc reveal d4"><div class="ico">📍</div><h3>Localização Central</h3><p>No coração de Recife, na Av. Dantas Barreto, fácil acesso</p></div>
+    <div class="pqc reveal d2"><div class="ico">📲</div><h3>Atendimento WhatsApp</h3><p>Solicite catálogo, tire dúvidas e faça pedidos diretamente</p></div>
+    <div class="pqc reveal d3"><div class="ico">🏫</div><h3>Foco Escolar</h3><p>Especialistas em material escolar e papelaria para estudantes</p></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="sbar">
+  <div class="si">
+    <div class="sit"><h2 class="counter" data-target="10500">0</h2><p>Seguidores no Instagram</p></div>
+    <div class="sit"><h2 class="counter" data-target="406">0</h2><p>Produtos publicados</p></div>
+    <div class="sit"><h2>4.4 ⭐</h2><p>Avaliação no Google</p></div>
+    <div class="sit"><h2>Seg–Sáb</h2><p>Aberto 6 dias por semana</p></div>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="promo">
+  <div class="pb2 reveal">
+    <span class="pbadge">⏰ Oferta Especial</span>
+    <h2>Promoção de Volta às Aulas!</h2>
+    <p>Garanta seu material escolar com desconto especial. Oferta por tempo limitado!</p>
+    <div class="cd">
+      <div class="cdi"><div class="cdn" id="cdD">00</div><div class="cdl">Dias</div></div>
+      <div class="cdi"><div class="cdn" id="cdH">00</div><div class="cdl">Horas</div></div>
+      <div class="cdi"><div class="cdn" id="cdM">00</div><div class="cdl">Min</div></div>
+      <div class="cdi"><div class="cdn" id="cdS">00</div><div class="cdl">Seg</div></div>
+    </div>
+    <a href="https://wa.me/5581999577961?text=Quero%20aproveitar%20a%20promoção!"
+       target="_blank" class="bp">
+      <i class="fab fa-whatsapp"></i> Quero Aproveitar!
+    </a>
+  </div>
+</div>
+
+<!-- AVALIAÇÕES -->
+<section id="avaliacoes">
+  <div class="sh reveal">
+    <span class="sl">O que dizem nossos clientes</span>
+    <h2 class="st">Avaliações</h2>
+    <p class="ss">Mais de 100 avaliações no Google com nota 4.4 ⭐</p>
+    <div class="sd"></div>
+  </div>
+  <div class="ag">
+
+    <div class="ac reveal d1">
+      <div class="stars">★★★★★</div>
+      <p class="at">"Ótima loja! Encontrei tudo que precisava para a volta às aulas dos meus filhos. Preços acessíveis e atendimento excelente."</p>
+      <div class="av">
+        <div class="ava">M</div>
+        <div class="avi">
+          <strong>Maria Silva</strong>
+          <span>Recife, PE</span>
+        </div>
+      </div>
+      <div class="gtag"><i class="fab fa-google"></i> Avaliação via Google</div>
+    </div>
+
+    <div class="ac reveal d2">
+      <div class="stars">★★★★★</div>
+      <p class="at">"Variedade incrível! Têm de tudo mesmo, desde papelaria até utilidades domésticas. Vou sempre comprar aqui."</p>
+      <div class="av">
+        <div class="ava">J</div>
+        <div class="avi">
+          <strong>João Ferreira</strong>
+          <span>Santo Antônio, Recife</span>
+        </div>
+      </div>
+      <div class="gtag"><i class="fab fa-google"></i> Avaliação via Google</div>
+    </div>
+
+    <div class="ac reveal d3">
+      <div class="stars">★★★★☆</div>
+      <p class="at">"Preços ótimos e localização muito boa, no centro de Recife. Facilidade para estacionar nas redondezas."</p>
+      <div class="av">
+        <div class="ava">A</div>
+        <div class="avi">
+          <strong>Ana Souza</strong>
+          <span>Boa Vista, Recife</span>
+        </div>
+      </div>
+      <div class="gtag"><i class="fab fa-google"></i> Avaliação via Google</div>
+    </div>
+
+    <div class="ac reveal d2">
+      <div class="stars">★★★★★</div>
+      <p class="at">"Compro material escolar aqui todo ano. Qualidade excelente, atendentes muito prestativos e sempre têm o que procuro!"</p>
+      <div class="av">
+        <div class="ava">C</div>
+        <div class="avi">
+          <strong>Carlos Mendes</strong>
+          <span>Recife, PE</span>
+        </div>
+      </div>
+      <div class="gtag"><i class="fab fa-google"></i> Avaliação via Google</div>
+    </div>
+
+    <div class="ac reveal d3">
+      <div class="stars">★★★★★</div>
+      <p class="at">"Loja muito organizada e com preços justos. Os brinquedos são de ótima qualidade e meus filhos adoraram!"</p>
+      <div class="av">
+        <div class="ava">P</div>
+        <div class="avi">
+          <strong>Patricia Lima</strong>
+          <span>Recife, PE</span>
+        </div>
+      </div>
+      <div class="gtag"><i class="fab fa-google"></i> Avaliação via Google</div>
+    </div>
+
+    <div class="ac reveal d4">
+      <div class="stars">★★★★☆</div>
+      <p class="at">"Recomendo! Fui comprar itens de papelaria e saí com muito mais. Tem de tudo mesmo, o nome diz tudo!"</p>
+      <div class="av">
+        <div class="ava">R</div>
+        <div class="avi">
+          <strong>Roberto Costa</strong>
+          <span>Recife, PE</span>
+        </div>
+      </div>
+      <div class="gtag"><i class="fab fa-google"></i> Avaliação via Google</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="localizacao">
+  <div class="sh reveal">
+    <span class="sl">Venha nos visitar</span>
+    <h2 class="st">Onde Estamos</h2>
+    <p class="ss">Fácil de encontrar no centro histórico de Recife</p>
+    <div class="sd"></div>
+  </div>
+  <div class="lc">
+    <div>
+      <h3 class="lt">Informações da Loja</h3>
+
+      <div class="li">
+        <div class="lic"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="lit">
+          <strong>Endereço</strong>
+          <span>Av. Dantas Barreto, 645<br>Santo Antônio, Recife – PE<br>CEP: 50010-360</span>
+        </div>
+      </div>
+
+      <div class="li">
+        <div class="lic"><i class="fas fa-phone"></i></div>
+        <div class="lit">
+          <strong>Telefone / WhatsApp</strong>
+          <span>(81) 9 9957-7961</span>
+        </div>
+      </div>
+
+      <div class="li">
+        <div class="lic"><i class="fab fa-instagram"></i></div>
+        <div class="lit">
+          <strong>Instagram</strong>
+          <span>@temdetudobazar_ofc</span>
+        </div>
+      </div>
+
+      <h3 class="lt" style="margin-top:28px;font-size:18px">Horário de Funcionamento</h3>
+      <table class="ht">
+        <tr id="dia-segunda"><td>Segunda-feira</td><td>8h00 – 18h00</td></tr>
+        <tr id="dia-terca">  <td>Terça-feira</td> <td>8h00 – 18h00</td></tr>
+        <tr id="dia-quarta"> <td>Quarta-feira</td> <td>8h00 – 18h00</td></tr>
+        <tr id="dia-quinta"> <td>Quinta-feira</td> <td>8h00 – 18h00</td></tr>
+        <tr id="dia-sexta">  <td>Sexta-feira</td>  <td>8h00 – 18h00</td></tr>
+        <tr id="dia-sabado"> <td>Sábado</td>       <td>8h00 – 18h00</td></tr>
+        <tr id="dia-domingo" class="fc2"><td>Domingo</td><td>Fechado</td></tr>
+      </table>
+    </div>
+
+    <div class="lmap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.3!2d-34.8813!3d-8.0633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xea5dc9f8b8fbf1fd!2sTem%20de%20Tudo%20Bazar!5e0!3m2!1spt-BR!2sbr!4v1"
+        allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="sh reveal">
+    <span class="sl">Redes Sociais</span>
+    <h2 class="st">Siga no Instagram</h2>
+    <p class="ss">10,5 mil seguidores já acompanham nossas novidades e promoções!</p>
+    <div class="sd"></div>
+  </div>
+  <div class="ig">
+    <div class="ic">📚<div class="io"><i class="fab fa-instagram"></i></div></div>
+    <div class="ic">🧸<div class="io"><i class="fab fa-instagram"></i></div></div>
+    <div class="ic">🏠<div class="io"><i class="fab fa-instagram"></i></div></div>
+    <div class="ic">✏️<div class="io"><i class="fab fa-instagram"></i></div></div>
+    <div class="ic">🎒<div class="io"><i class="fab fa-instagram"></i></div></div>
+    <div class="ic">🎁<div class="io"><i class="fab fa-instagram"></i></div></div>
+    <div class="ic">📝<div class="io"><i class="fab fa-instagram"></i></div></div>
+    <div class="ic">🖊️<div class="io"><i class="fab fa-instagram"></i></div></div>
+  </div>
+  <div class="icta">
+    <a href="https://www.instagram.com/temdetudobazar_ofc/"
+       target="_blank" class="bi">
+      <i class="fab fa-instagram"></i> @temdetudobazar_ofc
+    </a>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="sh reveal">
+    <span class="sl">Fale Conosco</span>
+    <h2 class="st">Entre em Contato</h2>
+    <p class="ss">Tem dúvida sobre produto, preço ou disponibilidade? Manda mensagem!</p>
+    <div class="sd"></div>
+  </div>
+  <div class="cw">
+    <form id="formContato" onsubmit="validarForm(event)">
+      <div class="fr">
+        <div class="fg">
+          <label>Nome completo</label>
+          <input type="text" id="fNome" placeholder="Seu nome"/>
+          <p class="errmsg" id="errNome"></p>
+        </div>
+        <div class="fg">
+          <label>WhatsApp</label>
+          <input type="tel" id="fWpp" placeholder="(81) 9 0000-0000"/>
+          <p class="errmsg" id="errWpp"></p>
+        </div>
+      </div>
+      <div class="fg">
+        <label>Assunto</label>
+        <select id="fAssunto">
+          <option>Solicitar catálogo</option>
+          <option>Informações sobre produto</option>
+          <option>Preços e promoções</option>
+          <option>Outros</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Mensagem</label>
+        <textarea id="fMsg" placeholder="Escreva sua mensagem aqui..." maxlength="300"></textarea>
+        <span class="cc2" id="charCount">0/300</span>
+        <p class="errmsg" id="errMsg"></p>
+      </div>
+      <button type="submit" class="benv" id="btnEnviar">
+        <i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp
+        <div class="sp" id="spinner">
+          <i class="fas fa-spinner fa-spin"></i> Enviando...
+        </div>
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg2">
+    <div class="fbr">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <div class="logo-ring" style="width:40px;height:40px">
+          <div class="logo-in">
+            <span>TEM DE TUDO</span>
+            <span class="bt">BAZAR</span>
+          </div>
+        </div>
+        <div>
+          <strong style="color:#fff;font-family:'Poppins',sans-serif;font-size:15px">Tem de Tudo Bazar</strong><br>
+          <span style="font-size:11px;color:rgba(255,255,255,.55)">Loja de Varejo · Recife</span>
+        </div>
+      </div>
+      <p>Tudo o que você precisa em um só lugar! Papelaria, material escolar, utilidades para casa e brinquedos no coração de Recife.</p>
+      <div class="soc">
+        <a href="https://www.instagram.com/temdetudobazar_ofc/" target="_blank" class="sb"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/5581999577961" target="_blank" class="sb"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.google.com/maps/place/Tem+de+Tudo+Bazar" target="_blank" class="sb"><i class="fab fa-google"></i></a>
+      </div>
+    </div>
+
+    <div class="fc2">
+      <h4>Categorias</h4>
+      <ul>
+        <li><a href="#" onclick="filtrarIr('papelaria')">📚 Papelaria</a></li>
+        <li><a href="#" onclick="filtrarIr('escolar')">✏️ Material Escolar</a></li>
+        <li><a href="#" onclick="filtrarIr('lar')">🏠 Utilidades do Lar</a></li>
+        <li><a href="#" onclick="filtrarIr('brinquedos')">🧸 Brinquedos</a></li>
+        <li><a href="#" onclick="filtrarIr('presentes')">🎁 Presentes</a></li>
+      </ul>
+    </div>
+
+    <div class="fc2">
+      <h4>Links Úteis</h4>
+      <ul>
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#destaques">Produtos</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+
+    <div class="fc2">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="tel:+5581999577961"><i class="fas fa-phone"></i> (81) 9 9957-7961</a></li>
+        <li><a href="https://wa.me/5581999577961" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/temdetudobazar_ofc/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="#localizacao"><i class="fas fa-map-marker-alt"></i> Como chegar</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fbot">
+    <p>© 2025 Tem de Tudo Bazar · Todos os direitos reservados</p>
+    <p>Desenvolvido com ❤️ para Recife - PE</p>
+  </div>
+</footer>
+
+<!-- SCROLL TOP -->
+<button id="stb" title="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+
+<!-- WPP FLOAT -->
+<a href="https://wa.me/5581999577961?text=Olá!%20Vim%20pelo%20site%20e%20quero%20mais%20informações!"
+   target="_blank" class="wfab">
+  <div class="wpu"></div>
+  <i class="fab fa-whatsapp"></i>
+  <span class="wtt">Fale conosco!</span>
+</a>
+
+<!-- COOKIE -->
+<div id="ck">
+  <p>🍪 Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade.</p>
+  <button class="bck" onclick="aceitarCookie()">Aceitar e Fechar</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
